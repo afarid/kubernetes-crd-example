@@ -1,7 +1,9 @@
 # kubernetes-crd-example
 Guide for autogeneratng  client codes for Kubernetes Custom Resource Definitions (CRD)
 
-# Steps 1:
+# Steps:
+
+- take the configuration in directory in `pkg/apis/foo.com/` as template to define the new crd" 
 
 - Disable go modules 
 ```bash
@@ -22,4 +24,18 @@ go get github.com/afarid/kubernetes-crd-example/pkg/apis/foo.com/v1
 ```bash 
 cd $GOPATH/src/github.com/afarid/kubernetes-crd-example
 ../../../k8s.io/code-generator/generate-groups.sh all "github.com/afarid/kubernetes-crd-example/pkg/clients" "github.com/afarid/kubernetes-crd-example/pkg/apis" "foo.com:v1" -h ../../../k8s.io/code-generator/hack/boilerplate.go.txt
+```
+
+- use generated package in your code, this is an example of how to use the generated package
+
+```go
+package main
+
+import (
+	clientset "github.com/afarid/kubernetes-crd-example/pkg/clients/clientset/versioned"
+)
+
+func main() {
+	_, _ = clientset.NewForConfig(nil)
+}
 ```
