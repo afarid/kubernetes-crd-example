@@ -25,6 +25,7 @@ go get github.com/afarid/kubernetes-crd-example/pkg/apis/foo.com/v1
 cd $GOPATH/src/github.com/afarid/kubernetes-crd-example
 ../../../k8s.io/code-generator/generate-groups.sh all "github.com/afarid/kubernetes-crd-example/pkg/clients" "github.com/afarid/kubernetes-crd-example/pkg/apis" "foo.com:v1" -h ../../../k8s.io/code-generator/hack/boilerplate.go.txt
 ```
+After running the above command, you will see a new directory `pkg/clients/`.
 
 - use generated package in your code, this is an example of how to use the generated package
 
