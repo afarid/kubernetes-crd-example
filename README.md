@@ -15,7 +15,7 @@ export GO111MODULE=off
 
 - Download this repository
 ```bash
- got get github.com/afarid/kubernetes-crd-example
+go get github.com/afarid/kubernetes-crd-example/pkg/apis/foo.com/v1
 ```
 
 - Run this command inside this project directory:
